@@ -71,6 +71,7 @@ class ProductData:
     name: str | None = None
     off_categories: list[str] = field(default_factory=list)
     suggested_category: str | None = None
+    suggested_confidence: str | None = None
     # Nutri-Score 2023 publicado por OFF, solo para comparar con el nuestro.
     off_grade_2023: str | None = None
     from_cache: bool = False
