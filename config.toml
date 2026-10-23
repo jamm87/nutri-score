@@ -1,0 +1,31 @@
+# Configuración de nutriscore-cli. Se puede cambiar sin tocar código.
+
+[gemini]
+# Modelo con visión más barato a 2026-10 según https://ai.google.dev/gemini-api/docs/pricing
+# (entrada 0,10 $/1M tokens en capa de pago). Alternativa vigente si se retira:
+# "gemini-3.1-flash-lite" (entrada 0,25 $/1M) — actualiza también los precios de abajo.
+model = "gemini-2.5-flash-lite"
+# Variable de entorno de la que se lee la clave de API (Google AI Studio).
+api_key_env = "GEMINI_API_KEY"
+# Precios de la capa de pago en USD por 1M tokens, solo para ESTIMAR el coste.
+# Entrada: verificado en la página de precios. Salida: PENDIENTE DE VERIFICAR.
+price_input_per_mtok_usd = 0.10
+price_output_per_mtok_usd = 0.40
+# true = usas la capa gratuita: el coste facturado es 0, pero se registra igualmente
+# lo que costaría en la capa de pago.
+free_tier = true
+
+[image]
+# Lado mayor máximo en píxeles antes de enviar a Gemini. 1024 suele bastar para leer
+# una tabla nutricional fotografiada de cerca; súbelo solo si Gemini marca campos ilegibles.
+max_side_px = 1024
+jpeg_quality = 85
+
+[cache]
+db_path = "data/nutriscore.sqlite3"
+
+[off]
+base_url = "https://world.openfoodfacts.org"
+# OFF pide identificar la aplicación en el User-Agent.
+user_agent = "nutriscore-cli/0.1 (uso personal)"
+timeout_s = 10

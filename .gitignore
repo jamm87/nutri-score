@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+# Datos locales: caché de productos y registro de costes
+data/
+*.sqlite3
+# Clave de API
+.env
